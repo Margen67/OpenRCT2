@@ -120,7 +120,7 @@ duktape       | Unless scripting is disabled.
 cmake         |
 innoextract   | Optional runtime dependency; used for GOG installer extraction during setup.
 
-Refer to https://github.com/OpenRCT2/OpenRCT2/wiki/Building-OpenRCT2-on-Linux#required-packages-general for more information about installing the packages.
+Refer to [wiki/Building-OpenRCT2-on-Linux#required-packages-general](https://github.com/OpenRCT2/OpenRCT2/wiki/Building-OpenRCT2-on-Linux#required-packages-general) for more information about installing the packages.
 
 ---
 
