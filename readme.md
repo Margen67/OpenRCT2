@@ -67,17 +67,17 @@ OpenRCT2 requires original files of RollerCoaster Tycoon 2 to play. It can be bo
 * [Latest stable release](https://flathub.org/repo/appstream/io.openrct2.OpenRCT2.flatpakref)
 * [Latest development build](https://flathub.org/beta-repo/appstream/io.openrct2.OpenRCT2.flatpakref)
 
-Some Linux distributions offer native packages already. These packages are usually third-party, but we're trying to resolve issues they are facing.
-* ArchLinux AUR: [openrct2-git](https://aur.archlinux.org/packages/openrct2-git) and [openrct2](https://aur.archlinux.org/packages/openrct2)
-* Ubuntu PPA: [`develop` branch](https://launchpad.net/~openrct2/+archive/ubuntu/nightly) (nightly builds)
-* openSUSE OBS: [games/openrct2](https://software.opensuse.org/download.html?project=games&package=openrct2)
-* Gentoo (main portage tree): [games-simulation/openrct2](https://packages.gentoo.org/packages/games-simulation/openrct2)
-* NixOS (`nixos-unstable` channel): [openrct2](https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/openrct2/default.nix)
-* Fedora 28 i386/amd64: [openrct2](https://copr.fedorainfracloud.org/coprs/nauticalnexus/openrct2/)
-
-Some \*BSD operating systems offer native packages. These packages are usually third-party, but we're trying to resolve issues they are facing.
-* FreeBSD: [games/openrct2](https://www.freshports.org/games/openrct2)
-* OpenBSD: [games/openrct2](https://openports.se/games/openrct2)
+Some Linux distributions and \*BSD operating systems offer native packages. These packages are usually third-party, but we're trying to resolve issues they are facing.
+Distro                           | Link(s)
+------                           | -------
+ArchLinux AUR                    | [openrct2-git](https://aur.archlinux.org/packages/openrct2-git) and [openrct2](https://aur.archlinux.org/packages/openrct2)
+Ubuntu PPA                       | [`develop` branch (nightly builds)](https://launchpad.net/~openrct2/+archive/ubuntu/nightly)
+openSUSE OBS                     | [games/openrct2](https://software.opensuse.org/download.html?project=games&package=openrct2)
+Gentoo (main portage tree)       | [games-simulation/openrct2](https://packages.gentoo.org/packages/games-simulation/openrct2)
+NixOS (`nixos-unstable` channel) | [openrct2](https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/openrct2/default.nix)
+Fedora 28 i386/amd64             | [openrct2](https://copr.fedorainfracloud.org/coprs/nauticalnexus/openrct2/)
+FreeBSD                          | [games/openrct2](https://www.freshports.org/games/openrct2)
+OpenBSD                          | [games/openrct2](https://openports.se/games/openrct2)
 
 ---
 
@@ -102,21 +102,23 @@ The program can also be built as a command line program using CMake. This type o
 
 
 ### Linux:
-- sdl2 (only for UI client)
-- freetype (can be disabled)
-- fontconfig (can be disabled)
-- libzip (>= 1.0)
-- libpng (>= 1.2)
-- speexdsp (only for UI client)
-- curl (only if building with http support)
-- nlohmann-json (>= 3.6.0)
-- openssl (>= 1.0; only if building with multiplayer support)
-- icu (>= 59.0)
-- zlib
-- gl (commonly provided by Mesa or GPU vendors; only for UI client, can be disabled)
-- duktape (unless scripting is disabled)
-- cmake
-- innoextract (optional runtime dependency; used for GOG installer extraction during setup)
+Package       | Note(s)
+-------       | -------
+sdl2          | Only for UI client
+freetype      | Can be disabled.
+fontconfig    | Can be disabled.
+libzip        | >= 1.0
+libpng        | >= 1.2
+speexdsp      | Only for UI client.
+curl          | Only if building with http support.
+nlohmann-json | >= 3.6.0
+openssl       | >= 1.0; only if building with multiplayer support.
+icu           | >= 59.0
+zlib          |
+gl            | Commonly provided by Mesa or GPU vendors; only for UI client, can be disabled.
+duktape       | Unless scripting is disabled.
+cmake         |
+innoextract   | Optional runtime dependency; used for GOG installer extraction during setup.
 
 Refer to https://github.com/OpenRCT2/OpenRCT2/wiki/Building-OpenRCT2-on-Linux#required-packages-general for more information about installing the packages.
 
