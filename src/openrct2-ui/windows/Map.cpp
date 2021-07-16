@@ -19,6 +19,7 @@
 #include <openrct2/Input.h>
 #include <openrct2/OpenRCT2.h>
 #include <openrct2/actions/LandSetRightsAction.h>
+#include <openrct2/actions/MapSetSizeAction.h>
 #include <openrct2/actions/PlaceParkEntranceAction.h>
 #include <openrct2/actions/PlacePeepSpawnAction.h>
 #include <openrct2/actions/SurfaceSetStyleAction.h>
@@ -656,15 +657,10 @@ static void window_map_textinput(rct_window* w, rct_widgetindex widgetIndex, cha
                 size = std::clamp(size, MINIMUM_MAP_SIZE_TECHNICAL, MAXIMUM_MAP_SIZE_TECHNICAL);
 
                 int32_t currentSize = gMapSize;
-                while (size < currentSize)
+                if (size != currentSize)
                 {
-                    map_window_decrease_map_size();
-                    currentSize--;
-                }
-                while (size > currentSize)
-                {
-                    map_window_increase_map_size();
-                    currentSize++;
+                    auto gameAction = MapSetSizeAction(size);
+                    GameActions::Execute(&gameAction);
                 }
                 w->Invalidate();
             }
@@ -1368,20 +1364,14 @@ static void window_map_set_peep_spawn_tool_down(const ScreenCoordsXY& screenCoor
  */
 static void map_window_increase_map_size()
 {
-    if (gMapSize >= MAXIMUM_MAP_SIZE_TECHNICAL)
+    uint8_t newMapSize = gMapSize + 1;
+    auto gameAction = MapSetSizeAction(newMapSize);
+    auto result = GameActions::Execute(&gameAction);
+    if (result->Error == GameActions::Status::Ok)
     {
-        context_show_error(STR_CANT_INCREASE_MAP_SIZE_ANY_FURTHER, STR_NONE, {});
-        return;
+        window_map_init_map();
+        window_map_centre_on_view_point();
     }
-
-    gMapSize++;
-    gMapSizeUnits = (gMapSize - 1) * 32;
-    gMapSizeMinus2 = (gMapSize * 32) + MAXIMUM_MAP_SIZE_PRACTICAL;
-    gMapSizeMaxXY = ((gMapSize - 1) * 32) - 1;
-    map_extend_boundary_surface();
-    window_map_init_map();
-    window_map_centre_on_view_point();
-    gfx_invalidate_screen();
 }
 
 /**
@@ -1390,20 +1380,14 @@ static void map_window_increase_map_size()
  */
 static void map_window_decrease_map_size()
 {
-    if (gMapSize < 16)
+    uint8_t newMapSize = (gMapSize - 1);
+    auto gameAction = MapSetSizeAction(newMapSize);
+    auto result = GameActions::Execute(&gameAction);
+    if (result->Error == GameActions::Status::Ok)
     {
-        context_show_error(STR_CANT_DECREASE_MAP_SIZE_ANY_FURTHER, STR_NONE, {});
-        return;
+        window_map_init_map();
+        window_map_centre_on_view_point();
     }
-
-    gMapSize--;
-    gMapSizeUnits = (gMapSize - 1) * 32;
-    gMapSizeMinus2 = (gMapSize * 32) + MAXIMUM_MAP_SIZE_PRACTICAL;
-    gMapSizeMaxXY = ((gMapSize - 1) * 32) - 1;
-    map_remove_out_of_range_elements();
-    window_map_init_map();
-    window_map_centre_on_view_point();
-    gfx_invalidate_screen();
 }
 
 static constexpr const uint16_t WaterColour = MapColour(PALETTE_INDEX_195);

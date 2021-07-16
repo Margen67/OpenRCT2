@@ -79,6 +79,7 @@
     <ClInclude Include="actions\LargeSceneryRemoveAction.h" />
     <ClInclude Include="actions\LargeScenerySetColourAction.h" />
     <ClInclude Include="actions\LoadOrQuitAction.h" />
+    <ClInclude Include="actions\MapSetSizeAction.h" />
     <ClInclude Include="actions\MazePlaceTrackAction.h" />
     <ClInclude Include="actions\MazeSetTrackAction.h" />
     <ClInclude Include="actions\NetworkModifyGroupAction.h" />
@@ -505,6 +506,7 @@
     <ClCompile Include="actions\LargeSceneryRemoveAction.cpp" />
     <ClCompile Include="actions\LargeScenerySetColourAction.cpp" />
     <ClCompile Include="actions\LoadOrQuitAction.cpp" />
+    <ClCompile Include="actions\MapSetSizeAction.cpp" />
     <ClCompile Include="actions\MazePlaceTrackAction.cpp" />
     <ClCompile Include="actions\MazeSetTrackAction.cpp" />
     <ClCompile Include="actions\NetworkModifyGroupAction.cpp" />

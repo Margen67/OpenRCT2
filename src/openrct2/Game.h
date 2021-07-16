@@ -85,6 +85,7 @@ enum class GameCommand : int32_t
     SetSignName,              // GA
     SetBannerStyle,           // GA
     SetSignStyle,             // GA
+    SetMapSize,               // GA
     SetPlayerGroup,           // GA
     ModifyGroups,             // GA
     KickPlayer,               // GA

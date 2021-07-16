@@ -34,6 +34,7 @@
 #include "LargeSceneryRemoveAction.h"
 #include "LargeScenerySetColourAction.h"
 #include "LoadOrQuitAction.h"
+#include "MapSetSizeAction.h"
 #include "MazePlaceTrackAction.h"
 #include "MazeSetTrackAction.h"
 #include "NetworkModifyGroupAction.h"
@@ -106,6 +107,7 @@ namespace GameActions
         Register<FootpathAdditionPlaceAction>();
         Register<FootpathAdditionRemoveAction>();
         Register<GuestSetNameAction>();
+        Register<MapSetSizeAction>();
         Register<MazePlaceTrackAction>();
         Register<MazeSetTrackAction>();
         Register<NetworkModifyGroupAction>();

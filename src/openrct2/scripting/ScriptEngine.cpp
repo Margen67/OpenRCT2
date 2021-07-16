@@ -1013,6 +1013,7 @@ const static std::unordered_map<std::string, GameCommand> ActionNameToType = {
     { "largesceneryremove", GameCommand::RemoveLargeScenery },
     { "largescenerysetcolour", GameCommand::SetSceneryColour },
     { "loadorquit", GameCommand::LoadOrQuit },
+    { "mapsetsize", GameCommand::SetMapSize },
     { "mazeplacetrack", GameCommand::PlaceMazeDesign },
     { "mazesettrack", GameCommand::SetMazeTrack },
     { "networkmodifygroup", GameCommand::ModifyGroups },

@@ -411,6 +411,7 @@ declare global {
         "loadorquit" |
         "mazeplacetrack" |
         "mazesettrack" |
+        "mapsetsize" |
         "networkmodifygroup" |
         "parkentranceremove" |
         "parkmarketing" |
